@@ -6,12 +6,16 @@ import {styles} from '../styles/sty'
 class HomeScreen extends Component{
     render(){
         return(
-            <View>
+            <View style={styles.container}>
                 <Text>HomeScreen</Text>
                      <TouchableOpacity
                          onPress={() => this.props.navigation.navigate('Variables')}
                      >
-                         <Text>Press Here</Text>
+                         <Text>GetIn</Text>
+                     </TouchableOpacity>
+                     <TouchableOpacity
+                     >
+                         <Text>Drawer</Text>
                      </TouchableOpacity>
                 </View>
 

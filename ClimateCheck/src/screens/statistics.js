@@ -3,7 +3,7 @@ import { View, Text } from 'react-native'
 import { styles } from '../styles/sty';
 
 StatisticsScreen = () =>
-<View style={styles.center}>
+<View style={styles.container}>
     <Text>Statistics</Text>
 </View>
 export default StatisticsScreen;
