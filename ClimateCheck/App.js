@@ -26,10 +26,16 @@ class App extends Component{
   createHomeStack = () =>
     <Stack.Navigator>
       <Stack.Screen name="ClimateCheck" component={HomeScreen}/>
-      <Stack.Screen name="Statistics" component={StatisticsScreen}/>
-      <Stack.Screen name="About" component={AboutScreen}/>
-      <Stack.Screen name="Settings" component={SettingsScreen}/>
+      <Stack.Screen name="Variables" children={this.createBottomTabs}/>   
     </Stack.Navigator>
+
+createBottomTabs = () =>{
+  return <Tab.Navigator>
+  <Tab.Screen name="Temperature" component={AirScreen} />
+  <Tab.Screen name="Humidity" component={HumidityScreen} />
+  <Tab.Screen name="AirQ" component={AirScreen} />
+</Tab.Navigator>
+}
 
   render(){
     return(
@@ -39,7 +45,6 @@ class App extends Component{
         <Drawer.Screen name="Statistics" component={StatisticsScreen} />
         <Drawer.Screen name="About" component={AboutScreen} />
         <Drawer.Screen name="Settings" component={SettingsScreen} />
-
       </Drawer.Navigator>
     </NavigationContainer>
     );

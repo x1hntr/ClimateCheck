@@ -1,17 +1,20 @@
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, Button} from 'react-native'
 
 import {styles} from '../styles/sty'
 
-class Home extends Component{
+class HomeScreen extends Component{
     render(){
         return(
             <View>
-                <Text>
-                    ClimateCheck
-                </Text>
+                <Text>HomeScreen</Text>
+                    <Button
+                    title='Get In'
+                    onPress={() => this.props.navigation.navigate('Variables')}
+                    />
+               
             </View>
 
         );
     }
-}export default Home;
+}export default HomeScreen;
