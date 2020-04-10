@@ -11,15 +11,17 @@ render(){
         <Image style={styles.logo} source={require('../images/logo.png')}/>
         <TextInput style={styles.input}
         placeholder='Broker'
-        placeholderTextColor='#2d3436'
+        placeholderTextColor='#b2bec3'
         underlineColorAndroid='transparent'
         />
         <TextInput style={styles.input}
         placeholder='Username'
+        placeholderTextColor='#b2bec3'
         underlineColorAndroid='transparent'
         />
         <TextInput style={styles.input}
         placeholder='Password'
+        placeholderTextColor='#b2bec3'
         underlineColorAndroid='transparent'
         />
         <TouchableOpacity style={styles.button}

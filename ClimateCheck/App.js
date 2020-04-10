@@ -35,7 +35,7 @@ class App extends Component{
       <Stack.Screen name="ClimateCheck" component={HomeScreen}
       options={{ 
         headerLeft: () => (
-          <TouchableOpacity
+          <TouchableOpacity style={{marginHorizontal:15}}
          onPress={() => props.navigation.openDrawer()}
          >
         <FontAwesomeIcon icon={ faBars } size={25} color={'#2d3436'}/>

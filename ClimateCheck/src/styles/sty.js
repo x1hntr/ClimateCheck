@@ -29,7 +29,7 @@ logo:{
 },
 
 title:{
-    fontSize: 36,
+    fontSize: 20,
     marginBottom: 16,
     color: 'white'
 },
@@ -41,7 +41,7 @@ input:{
     borderColor: 'transparent',
     paddingHorizontal: 16,
     fontSize: 16,
-    color: '#ffff',
+    color: '#2d3436',
     marginVertical: 10    
 },
 buttonText:{
@@ -53,7 +53,6 @@ buttonText:{
 button:{
     width: 300,
     height: 45,
-
     backgroundColor: 'rgba(255, 255, 255, 0.3)', 
     borderRadius:25,
     marginVertical: 10,
