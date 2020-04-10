@@ -1,10 +1,23 @@
 import React, { Component } from 'react'
-import { View, Text} from 'react-native'
+import { View, Text, Image, TouchableOpacity, Linking} from 'react-native'
 
 import {styles} from '../styles/sty'
+import Logo from '../logo/logo.js'
 
-SettingsScreen = () =>
-<View style={styles.container}>
-    <Text>Settings</Text>
-</View>
+class SettingsScreen extends Component{
+render(){
+    return(
+    <View style={styles.container}>
+        <TouchableOpacity
+         onPress={() => Linking.openURL('https://github.com/x1hntr')}
+         >
+        <Image source={require('../images/github.png')}/>
+
+        </TouchableOpacity>
+        
+    </View>
+
+    );
+}  
+}
 export default SettingsScreen;

@@ -1,5 +1,12 @@
 import React, {Component} from 'react'
-import { View, Text, Button } from 'react-native'
+import { View, Text, Button, TouchableOpacity, Image } from 'react-native'
+
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { faTemperatureHigh } from '@fortawesome/free-solid-svg-icons'
+import { faWind } from '@fortawesome/free-solid-svg-icons'
+import { faTint } from '@fortawesome/free-solid-svg-icons'
+
 
 import {NavigationContainer} from '@react-navigation/native'
 import {createStackNavigator} from '@react-navigation/stack'
@@ -28,11 +35,12 @@ class App extends Component{
       <Stack.Screen name="ClimateCheck" component={HomeScreen}
       options={{ 
         headerLeft: () => (
-          <Button
-            onPress={() => props.navigation.openDrawer()}
-            title="Info"
-            color="black"
-          />
+          <TouchableOpacity
+         onPress={() => props.navigation.openDrawer()}
+         >
+        <FontAwesomeIcon icon={ faBars } size={25} color={'#2d3436'}/>
+
+        </TouchableOpacity>
         ),
        }}
       />
@@ -42,9 +50,30 @@ class App extends Component{
 
   createBottomTabs = () =>{
     return <Tab.Navigator>
-      <Tab.Screen name="Temperature" component={AirScreen} />
-      <Tab.Screen name="Humidity" component={HumidityScreen} />
-      <Tab.Screen name="AirQ" component={AirScreen} />
+      <Tab.Screen name="Temperature" component={TemperatureScreen}
+      options={{
+        title: "Temperature",
+        tabBarIcon: ({ color, size }) => (
+          <FontAwesomeIcon icon={faTemperatureHigh} size={size} color={color} />
+        )
+      }}
+      />
+      <Tab.Screen name="Humidity" component={HumidityScreen} 
+      options={{
+        title: "Humidity",
+        tabBarIcon: ({ color, size }) => (
+          <FontAwesomeIcon icon={faTint} size={size} color={color} />
+        )
+      }}
+      />
+      <Tab.Screen name="AirQ" component={AirScreen}
+      options={{
+        title: "AirQ",
+        tabBarIcon: ({ color, size }) => (
+          <FontAwesomeIcon icon={faWind} size={size} color={color} />
+        )
+      }}
+      />
     </Tab.Navigator>
   }
   createDrawerOptions= ()=>{
