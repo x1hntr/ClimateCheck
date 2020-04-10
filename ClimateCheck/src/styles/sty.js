@@ -19,21 +19,45 @@ center:{
     justifyContent: 'center',
     alignItems: 'center'
 },
+git:{
+    width: 80,
+    height: 80
+},
+logo:{
+    width: 200,
+    height:200
+},
+
 title:{
     fontSize: 36,
     marginBottom: 16,
     color: 'white'
 },
 input:{
-    borderWidth: 1,
-    borderColor: '#777',
-    padding: 8,
-    margin: 10,
-    height: 20,
-    width: 200
+    width: 300,
+    height: 45,
+    backgroundColor: 'rgba(255, 255, 255, 0.3)', 
+    borderRadius:25,
+    borderColor: 'transparent',
+    paddingHorizontal: 16,
+    fontSize: 16,
+    color: '#ffff',
+    marginVertical: 10    
 },
-buttonContainer:{
-    marginTop: 20
+buttonText:{
+    fontSize: 16,
+    fontWeight: '500',
+    color: '#ffff',
+    textAlign: 'center'
+},
+button:{
+    width: 300,
+    height: 45,
+
+    backgroundColor: 'rgba(255, 255, 255, 0.3)', 
+    borderRadius:25,
+    marginVertical: 10,
+    paddingVertical: 12
 }
 }
 );
