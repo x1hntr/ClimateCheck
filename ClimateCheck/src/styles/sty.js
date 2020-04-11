@@ -8,6 +8,24 @@ container:{
         alignItems: 'center', 
         backgroundColor: '#2f3640'
     },
+temContainer:{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center', 
+        backgroundColor: '#fab1a0'
+    },
+humContainer:{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center', 
+        backgroundColor: '#74b9ff'
+    },
+airContainer:{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center', 
+        backgroundColor: '#81ecec'
+    },
 subContainer:{
         flex: 1,
         justifyContent: 'center',
@@ -63,6 +81,16 @@ inputIcon:{
     position: 'absolute',
     top: 22,
     left: 20
+},
+status:{
+    position: 'absolute',
+    top: 0,
+    left: 125,
+    fontSize: 20,
+    fontStyle: 'italic',
+    marginBottom: 16,
+    color: 'white'
 }
+
 }
 );

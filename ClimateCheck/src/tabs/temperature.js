@@ -4,7 +4,7 @@ import { View, Text } from 'react-native'
 import {styles} from '../styles/sty'
 
 TemperatureScreen = () =>
-<View style={styles.center}>
+<View style={styles.temContainer}>
     <Text>TemperatureScreen</Text>
 </View>
 export default TemperatureScreen;

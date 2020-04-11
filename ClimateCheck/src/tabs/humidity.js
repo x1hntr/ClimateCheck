@@ -4,7 +4,7 @@ import { View, Text } from 'react-native'
 import {styles} from '../styles/sty'
 
 HumidityScreen = () =>
-<View style={styles.center}>
+<View style={styles.humContainer}>
     <Text>HumidityScreen</Text>
 </View>
 export default HumidityScreen;

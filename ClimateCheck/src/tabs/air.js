@@ -4,7 +4,7 @@ import { View, Text } from 'react-native'
 import {styles} from '../styles/sty'
 
 AirScreen = () =>
-<View style={styles.center}>
+<View style={styles.airContainer}>
     <Text>AirScreen</Text>
 </View>
 export default AirScreen;
