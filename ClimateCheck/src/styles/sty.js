@@ -25,7 +25,8 @@ git:{
 },
 logo:{
     width: 200,
-    height:200
+    height:200   
+
 },
 
 title:{
@@ -39,7 +40,7 @@ input:{
     backgroundColor: 'rgba(255, 255, 255, 0.3)', 
     borderRadius:25,
     borderColor: 'transparent',
-    paddingHorizontal: 16,
+    paddingHorizontal: 60,
     fontSize: 16,
     color: '#2d3436',
     marginVertical: 10    
@@ -57,6 +58,11 @@ button:{
     borderRadius:25,
     marginVertical: 10,
     paddingVertical: 12
+},
+inputIcon:{
+    position: 'absolute',
+    top: 22,
+    left: 20
 }
 }
 );
