@@ -41,6 +41,10 @@ git:{
     width: 80,
     height: 80
 },
+refresh:{
+    width: 40,
+    height: 40
+},
 logo:{
     width: 200,
     height:200   
