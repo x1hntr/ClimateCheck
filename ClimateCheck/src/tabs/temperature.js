@@ -14,11 +14,15 @@ import { AsyncStorage } from 'react-native';
 	  },
   });
   
-  export default class TemperatureScreen extends Component{
+  let newUser = 'x1hntr';
+  let newpassword = '712189';
+
+  export default class App extends Component{
     
     //constructor de mqtt
 
     constructor(props){
+  
       super(props); 
       
       const client = new Paho.MQTT.Client("broker.mqttdashboard.com", 8000, 'control');
@@ -27,10 +31,12 @@ import { AsyncStorage } from 'react-native';
       client.connect({ 
         onSuccess: this.onConnect,
         useSSL: false ,
-        userName: 'x1hntr',
-        password: '712189',
+        userName: newUser,
+        password: newpassword,
         onFailure: (e) => {console.log("No pasa", e); }
+        
       });
+  
       this.state = { 
         message: [''],
         client,  
@@ -47,7 +53,7 @@ import { AsyncStorage } from 'react-native';
     onConnect = () => {
       const { client } = this.state;
       console.log("Conectado ");
-      client.subscribe("ambiente/temp");
+      client.subscribe("ambiente/aire");
       this.setState({isConnected: true, error: ''})
     }
     onMessageArrived = (message) => {
@@ -60,6 +66,7 @@ import { AsyncStorage } from 'react-native';
     return(
         <View >
             <Text>{this.state.message}</Text>
+            
         </View>
     );
 }
