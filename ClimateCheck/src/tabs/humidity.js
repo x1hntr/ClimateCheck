@@ -7,7 +7,7 @@ class HumidityScreen extends Component{
 constructor(props){
     super(props);
     this.loadData();
-    this.state={
+    this.state={ 
         newUser:'',
         newPassword:''
     }
