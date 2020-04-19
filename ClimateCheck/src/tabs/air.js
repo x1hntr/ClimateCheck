@@ -8,18 +8,19 @@ constructor(props){
     super(props);
     this.loadData();
     this.state={
-        userName:'',
-        password:''
+        newUser:'',
+        newPassword:''
     }
 }
+
 render(){
 return(
   <View style={styles.container}>  
     <Text style={styles.title}>
-        Hola:{this.state.userName} 
+        Hola:{this.state.newUser} 
     </Text>
     <Text style={styles.title}>
-        Password:{this.state.password}       
+        Password:{this.state.newPassword}       
     </Text>
   </View>
 );
@@ -27,7 +28,7 @@ return(
 loadData = async() => {
   let pss = await AsyncStorage.getItem('pass')
   let usern = await AsyncStorage.getItem('user')
-  this.setState({userName:usern});
-  this.setState({password:pss});
+  this.setState({newUser:usern});
+  this.setState({newPassword:pss});
 }
 }export default AirScreen;

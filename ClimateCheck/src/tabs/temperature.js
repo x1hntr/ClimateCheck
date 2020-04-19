@@ -14,29 +14,27 @@ import { AsyncStorage } from 'react-native';
 	  },
   });
   
-  let newUser = 'x1hntr';
-  let newpassword = '712189';
 
   export default class App extends Component{
     
     //constructor de mqtt
 
     constructor(props){
-  
       super(props); 
       
       const client = new Paho.MQTT.Client("broker.mqttdashboard.com", 8000, 'control');
       client.onMessageArrived = this.onMessageArrived;
       client.onConnectionLost = this.onConnectionLost;
+      
       client.connect({ 
         onSuccess: this.onConnect,
         useSSL: false ,
-        userName: newUser,
-        password: newpassword,
+        userName: 'x1hntr',
+        password: '712189',
         onFailure: (e) => {console.log("No pasa", e); }
         
       });
-  
+      
       this.state = { 
         message: [''],
         client,  
@@ -44,6 +42,7 @@ import { AsyncStorage } from 'react-native';
         showError: false,
          };
     }
+    
     onConnectionLost = (responseObject) => {
       if (responseObject.errorCode !== 0) {
         console.log("CONEXION PERDIDA "+responseObject.errorMessage);
@@ -61,7 +60,12 @@ import { AsyncStorage } from 'react-native';
       console.log("\n");
       this.setState({message: [...this.state.message, message.payloadString]});
     }
-    
+    componentWillUnmount = () => {
+      const { client } = this.state;
+      client.unsubscribe('ambiente/aire')
+      console.log('unsuscribe')
+  }
+  
   render(){
     return(
         <View >
