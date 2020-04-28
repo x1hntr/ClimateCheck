@@ -56,6 +56,12 @@ title:{
     marginBottom: 16,
     color: 'white'
 },
+number:{
+    fontSize: 40,
+    fontWeight: "bold",
+    marginBottom: 16,
+    color: 'white'
+},
 input:{
     width: 300,
     height: 45,
@@ -86,6 +92,11 @@ inputIcon:{
     top: 22,
     left: 20
 },
+inputIcon2:{
+    position: 'absolute',
+    top: 22,
+    left: 260
+},
 status:{
     position: 'absolute',
     top: 0,
@@ -95,6 +106,5 @@ status:{
     marginBottom: 16,
     color: 'white'
 }
-
 }
 );

@@ -1,67 +1,33 @@
 import React, { Component } from 'react'
 import { View, Text, Image, TouchableOpacity, Linking, TextInput, AsyncStorage} from 'react-native'
-
+import { connect } from 'react-redux';
+import { credentialsSet } from '../actions/loginActions';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faCloud } from '@fortawesome/free-solid-svg-icons'
-import { faUser } from '@fortawesome/free-solid-svg-icons'
-import { faLock } from '@fortawesome/free-solid-svg-icons'
+import { faCloud, faUser, faLock, faEye } from '@fortawesome/free-solid-svg-icons'
 
 
 import {styles} from '../styles/sty'
 
 
-let user;
-let pass;
-
 class SettingsScreen extends Component{
     constructor(){
         super()
         this.state={
-          broker:'',
-          userName:'',
-          password:''
+          broker:null,
+          userName: null,
+          password: null
         }
+        this.changeName = this.changeName.bind(this);
       }
-      ChangeBroker(broker){
-        this.setState({broker})
+      changeName(){
+        this.props.credentialsSet(this.state.broker, this.state.userName, this.state.password);
       }
-      ChangeName(userName){
-        this.setState({userName})
-      }
-      ChangePassword(password){
-        this.setState({password})
-      }
-      saveData(userName, password){
-        AsyncStorage.setItem('broker', this.state.broker)
-        AsyncStorage.setItem('user', this.state.userName)
-        AsyncStorage.setItem('pass', this.state.password)
     
-      }
-      displayData = async () => {
-        try{
-                alert(await AsyncStorage.getItem('broker') + '\n' + 
-                      await AsyncStorage.getItem('user') + '\n' +
-                      await AsyncStorage.getItem('pass'));
-        }
-       catch(error){
-         alert(error);
-       } 
-      }
-      buttonPressed(){
-        if(this.state.userName && this.state.password)
-        alert(this.state.userName+ ''+ this.state.password);
-      }
-      resetData() {
-        try {
-        AsyncStorage.removeItem('broker');
-        AsyncStorage.removeItem('pass');
-        AsyncStorage.removeItem('user');
-    
-          } catch (error) {
-          console.log("Error resetting data" + error);
-        }
-      }
+      
 render(){
+    console.log('WELLCOME: ' + this.props.broker);
+    console.log('WELLCOME: ' + this.props.userName);
+    console.log('PASSWORD: ' + this.props.password);
     return(
     <View style={styles.container}>
         <Image style={styles.logo} source={require('../images/logo.png')}/>
@@ -72,7 +38,7 @@ render(){
         placeholderTextColor='#b2bec3'
         underlineColorAndroid='transparent'
         value={this.state.broker}
-        onChangeText={(broker) => this.ChangeBroker(broker)}
+        onChangeText={(broker) => this.setState({broker})}
         />
         </View>
         <View>
@@ -82,27 +48,28 @@ render(){
         placeholderTextColor='#b2bec3'
         underlineColorAndroid='transparent'
         value={this.state.userName}
-        onChangeText={(userName) => this.ChangeName(userName)}
+        onChangeText={(userName) => this.setState({userName})}
         />
         </View>
         <View>
         <FontAwesomeIcon style={styles.inputIcon} icon={faLock} size={20} color={'#b2bec3'} />
+        <FontAwesomeIcon style={styles.inputIcon2} icon={faEye} size={20} color={'#b2bec3'} />
         <TextInput style={styles.input}
         placeholder='Password'
         placeholderTextColor='#b2bec3'
         underlineColorAndroid='transparent'
-        secureTextEntry
+        secureTextEntry={true}
         value={this.state.password}
-        onChangeText={(password) => this.ChangePassword(password)}
+        onChangeText={(password) => this.setState({password})}
         />
         </View>
     
         <TouchableOpacity style={styles.button}
-        onPress={() => this.saveData()}  
-        >
+        onPress={(broker, userName, password) => {this.changeName(broker, userName, password)}}>
           <Text style={styles.buttonText}
           >SAVE</Text>
         </TouchableOpacity>
+
         <TouchableOpacity style={styles.button}
         onPress={this.displayData}>
           <Text style={styles.buttonText}
@@ -113,4 +80,11 @@ render(){
     );
 }  
 }
-export default SettingsScreen;
+mapStateToProps = (state) =>{
+  return{
+    broker: state.broker,
+    userName: state.userName,
+    password: state.password
+  }
+}
+export default connect(mapStateToProps, {credentialsSet})(SettingsScreen);
