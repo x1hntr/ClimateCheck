@@ -21,7 +21,7 @@ let temp = [20, 20, 20, 20, 20, 20, 20, 20, 20, 20];
   class TemperatureScreen extends Component{  
     constructor(props){
       super(props); 
-      const client = new Paho.MQTT.Client("ioticos.org", 8093, 'control');
+      const client = new Paho.MQTT.Client("ioticos.org", 8093, 'control2');
       client.onMessageArrived = this.onMessageArrived;
       client.onConnectionLost = this.onConnectionLost;
       
@@ -52,7 +52,7 @@ let temp = [20, 20, 20, 20, 20, 20, 20, 20, 20, 20];
     onConnect = () => {
       const { client } = this.state;
       console.log("Conectado ");
-      client.subscribe("3Rgxx48mXbo1xia/temperature");
+      client.subscribe("3Rgxx48mXbo1xia/humidity");
       this.setState({isConnected: true, error: ''})
     }
 
@@ -75,9 +75,9 @@ let temp = [20, 20, 20, 20, 20, 20, 20, 20, 20, 20];
 
   render(){
     return(
-        <View style={styles.temContainer}>
-          <Image style={styles.logo} source={require('../images/temperature.png')}/>
-            <Text style={styles.number}> {temp[0]} °C</Text> 
+        <View style={styles.humContainer}>
+          <Image style={styles.logo} source={require('../images/humidity.png')}/>
+            <Text style={styles.number}> {temp[0]} %</Text> 
               <LineChart
     data={{
       labels: ["T1", "T2", "T3", "T4", "T5", "T6", "T7", "T8", "T9"],
@@ -107,8 +107,8 @@ let temp = [20, 20, 20, 20, 20, 20, 20, 20, 20, 20];
     yAxisInterval={1} // optional, defaults to 1
     chartConfig={{
       backgroundColor: "#e26a00",
-      backgroundGradientFrom: "#fab1a0",
-      backgroundGradientTo: "#fab1a0",
+      backgroundGradientFrom: "#74b9ff",
+      backgroundGradientTo: "#74b9ff",
       decimalPlaces: 0, // optional, defaults to 2dp
       color: (opacity = 1) => `rgba(255, 255, 255, 1)`,
       labelColor: (opacity = 1) => `rgba(255, 255, 255, 1)`,
@@ -118,7 +118,7 @@ let temp = [20, 20, 20, 20, 20, 20, 20, 20, 20, 20];
       propsForDots: {
         r: "5",
         strokeWidth: "2",
-        stroke: "#fab1a0"
+        stroke: "#74b9ff"
       }
     }}
     bezier
