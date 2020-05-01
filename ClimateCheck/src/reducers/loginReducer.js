@@ -1,7 +1,7 @@
 const initialState = {
-    broker: 'broker@mqtt.com',
-    userName: '@user',
-    password: 'password'
+    broker: 'wKhj0dyPEhaXgT5',
+    userName: 'wKhj0dyPEhaXgT5',
+    password: 'VVkfFKYZAzEV7t0'
   }
 export default (state = initialState , action) =>{
     
