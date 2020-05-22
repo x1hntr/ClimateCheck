@@ -1,13 +1,10 @@
 import React, { Component } from 'react'
-import { View, Text, Image, TouchableOpacity, Linking, TextInput, AsyncStorage} from 'react-native'
+import { View, Text, Image, TouchableOpacity, TextInput} from 'react-native'
 import { connect } from 'react-redux';
 import { credentialsSet } from '../actions/loginActions';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faCloud, faUser, faLock, faEye } from '@fortawesome/free-solid-svg-icons'
-
-
+import { faCloud, faUser, faLock, faEye, faArrowLeft} from '@fortawesome/free-solid-svg-icons'
 import {styles} from '../styles/sty'
-
 
 class SettingsScreen extends Component{
     constructor(){
@@ -22,7 +19,6 @@ class SettingsScreen extends Component{
       changeName(){
         this.props.credentialsSet(this.state.broker, this.state.userName, this.state.password);
       }
-    
       
 render(){
     console.log('WELLCOME: ' + this.props.broker);
@@ -30,6 +26,12 @@ render(){
     console.log('PASSWORD: ' + this.props.password);
     return(
     <View style={styles.container}>
+        
+        <TouchableOpacity style={styles.backButton}
+            onPress={() => this.props.navigation.navigate('Home')} >
+            <FontAwesomeIcon  icon={faArrowLeft} size={35} color={'#b2bec3'} />
+         </TouchableOpacity>
+
         <Image style={styles.logo} source={require('../images/logo.png')}/>
         <View>
         <FontAwesomeIcon style={styles.inputIcon} icon={faCloud} size={21} color={'#b2bec3'} />
@@ -63,7 +65,7 @@ render(){
         onChangeText={(password) => this.setState({password})}
         />
         </View>
-    
+  
         <TouchableOpacity style={styles.button}
         onPress={(broker, userName, password) => {this.changeName(broker, userName, password)}}>
           <Text style={styles.buttonText}

@@ -50,7 +50,6 @@ logo:{
     height:200   
 
 },
-
 title:{
     fontSize: 20,
     marginBottom: 16,
@@ -79,6 +78,12 @@ buttonText:{
     color: '#ffff',
     textAlign: 'center'
 },
+text:{
+    fontSize: 20,
+    fontWeight: '400',
+    color: '#ffff',
+    textAlign: 'center'
+},
 button:{
     width: 300,
     height: 45,
@@ -96,6 +101,14 @@ inputIcon2:{
     position: 'absolute',
     top: 22,
     left: 260
+},
+
+backButton:{
+    width: 35,
+    height: 35,
+    backgroundColor: 'rgba(255, 255, 255, 0)', 
+    top: -55,    
+    left: -145
 },
 status:{
     position: 'absolute',

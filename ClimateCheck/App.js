@@ -39,7 +39,6 @@ class App extends Component{
          onPress={() => props.navigation.openDrawer()}
          >
         <FontAwesomeIcon icon={ faBars } size={25} color={'#2d3436'}/>
-
         </TouchableOpacity>
         ),
        }}
